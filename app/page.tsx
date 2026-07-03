@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { Hero } from "@/components/home/Hero";
+import { TeamMarquee } from "@/components/home/TeamMarquee";
 import { Reveal } from "@/components/Reveal";
+import { Magnetic, Tilt } from "@/components/Interactive";
 import { RinkLine, PhotoSlot } from "@/components/Bits";
 import { jeugdTeams, seniorenTeams, allTeams, site } from "@/lib/site";
 
@@ -45,31 +47,22 @@ export default function Home() {
             </Reveal>
 
             <Reveal delay={80}>
-              <PhotoSlot
-                src="/photos/action-goalie.webp"
-                alt="IJshockeyer in actie tijdens een wedstrijd"
-                priority
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className="aspect-[4/3] w-full rounded-2xl shadow-[0_30px_60px_-30px_rgba(10,20,48,0.5)]"
-              />
+              <Tilt className="rounded-2xl">
+                <PhotoSlot
+                  src="/photos/action-goalie.webp"
+                  alt="IJshockeyer in actie tijdens een wedstrijd"
+                  priority
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="aspect-[4/3] w-full rounded-2xl shadow-[0_30px_60px_-30px_rgba(10,20,48,0.5)]"
+                />
+              </Tilt>
             </Reveal>
           </div>
         </div>
       </section>
 
-      {/* Team-name marquee (constant motion, real team names) ----------- */}
-      <div className="marquee-group overflow-hidden bg-navy-900 py-5 text-white select-none">
-        <div className="marquee items-center gap-8 pr-8">
-          {[...allTeams, ...allTeams].map((t, i) => (
-            <span key={i} className="flex items-center gap-8 whitespace-nowrap">
-              <span className="font-display text-xl font-bold tracking-tight text-white/90">
-                {t.name}
-              </span>
-              <span className="h-1.5 w-1.5 rounded-full bg-red" aria-hidden />
-            </span>
-          ))}
-        </div>
-      </div>
+      {/* Team-name marquee (scroll-velocity reactive) ------------------ */}
+      <TeamMarquee />
 
       {/* Teams overview ------------------------------------------------- */}
       <section id="teams" className="bg-surface py-24">
@@ -257,9 +250,11 @@ export default function Home() {
               verslavend is. We zien je graag op zaterdag.
             </p>
             <div className="mt-9 flex flex-wrap justify-center gap-3">
-              <Link href="/inschrijven" className="btn btn-primary text-[1rem]">
-                Schrijf je in
-              </Link>
+              <Magnetic>
+                <Link href="/inschrijven" className="btn btn-primary text-[1rem]">
+                  Schrijf je in
+                </Link>
+              </Magnetic>
               <a href={`mailto:${site.email}`} className="btn btn-ghost-onnavy text-[1rem]">
                 Stel een vraag
               </a>

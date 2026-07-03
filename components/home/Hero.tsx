@@ -1,10 +1,11 @@
 import Link from "next/link";
 import { IceRink } from "@/components/IceRink";
+import { Magnetic } from "@/components/Interactive";
 import { site } from "@/lib/site";
 
 export function Hero() {
   return (
-    <section className="relative isolate flex min-h-[86vh] items-center overflow-hidden bg-navy-900 text-white">
+    <section className="relative isolate flex min-h-[calc(100svh-4rem)] items-center overflow-hidden bg-navy-900 text-white">
       <IceRink className="absolute inset-0 -z-10 h-full w-full" />
 
       <div className="container-page py-24">
@@ -18,7 +19,7 @@ export function Hero() {
           </p>
 
           <h1
-            className="rise mt-5 font-display text-[clamp(2.7rem,7vw,5rem)] font-extrabold leading-[0.95] tracking-[-0.03em]"
+            className="rise mt-5 font-display text-[clamp(2.9rem,7.5vw,5.5rem)] font-extrabold leading-[0.94] tracking-[-0.03em]"
             style={{ animationDelay: "110ms" }}
           >
             De snelste
@@ -36,12 +37,16 @@ export function Hero() {
           </p>
 
           <div className="rise mt-9 flex flex-wrap items-center gap-3" style={{ animationDelay: "260ms" }}>
-            <Link href="/inschrijven" className="btn btn-primary text-[1rem]">
-              Kom proeftrainen
-            </Link>
-            <Link href="#teams" className="btn btn-ghost-onnavy text-[1rem]">
-              Bekijk de teams
-            </Link>
+            <Magnetic>
+              <Link href="/inschrijven" className="btn btn-primary text-[1rem]">
+                Kom proeftrainen
+              </Link>
+            </Magnetic>
+            <Magnetic>
+              <Link href="#teams" className="btn btn-ghost-onnavy text-[1rem]">
+                Bekijk de teams
+              </Link>
+            </Magnetic>
           </div>
         </div>
       </div>
