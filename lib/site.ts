@@ -244,3 +244,41 @@ export const newsHighlights = highlights.filter(
 export function highlightBySlug(slug: string) {
   return newsHighlights.find((h) => h.slug === slug);
 }
+
+/**
+ * Sponsors. `logo` is optional: when omitted the card shows the sponsor name as
+ * a text fallback, so the section looks finished before logo files exist. To
+ * show a logo, drop a file in public/sponsors/ and set `logo` to its path
+ * (transparent PNG or SVG works best).
+ */
+export type Sponsor = {
+  name: string;
+  url: string;
+  blurb?: string;
+  logo?: string; // e.g. "/sponsors/fysio-fabriek.svg"
+};
+
+export const sponsors: Sponsor[] = [
+  {
+    name: "Summer Ice",
+    url: "https://www.summerice.nl",
+    blurb: "Senioren Zomerijs 2026",
+    // logo: "/sponsors/summer-ice.png",
+  },
+  {
+    name: "Fysio Fabriek",
+    url: "https://fysiofabriek.nl",
+    blurb: "Fysiotherapie",
+    // logo: "/sponsors/fysio-fabriek.svg",
+  },
+];
+
+/**
+ * SponsorKliks: free fundraising via purchases. TODO: replace `url` with the
+ * club's own SponsorKliks action link (sponsorkliks.com root used as a safe
+ * default so nothing 404s).
+ */
+export const sponsorKliks = {
+  url: "https://www.sponsorkliks.com",
+  label: "Steun Leiden Lions gratis via SponsorKliks",
+};

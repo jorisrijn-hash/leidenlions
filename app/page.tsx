@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Hero } from "@/components/home/Hero";
 import { Featured } from "@/components/Featured";
+import { Sponsors } from "@/components/Sponsors";
 import { TeamMarquee } from "@/components/home/TeamMarquee";
 import { Reveal } from "@/components/Reveal";
 import { Magnetic, Tilt } from "@/components/Interactive";
@@ -241,6 +242,9 @@ export default function Home() {
           </Reveal>
         </div>
       </section>
+
+      {/* Sponsors ------------------------------------------------------- */}
+      <Sponsors />
 
       {/* Final CTA ------------------------------------------------------ */}
       <section className="bg-navy-900 py-24 text-white">
