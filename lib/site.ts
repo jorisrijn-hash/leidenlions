@@ -260,25 +260,75 @@ export type Sponsor = {
 
 export const sponsors: Sponsor[] = [
   {
-    name: "Summer Ice",
-    url: "https://www.summerice.nl",
-    blurb: "Senioren Zomerijs 2026",
-    // logo: "/sponsors/summer-ice.png",
-  },
-  {
     name: "Fysio Fabriek",
     url: "https://fysiofabriek.nl",
     blurb: "Fysiotherapie",
-    // logo: "/sponsors/fysio-fabriek.svg",
+    logo: "/sponsors/fysio-fabriek.png",
+  },
+  {
+    name: "SponsorKliks",
+    // TODO: replace with the club's own SponsorKliks action link.
+    url: "https://www.sponsorkliks.com",
+    blurb: "Gratis sponsoren",
+    logo: "/sponsors/sponsorkliks.png",
+  },
+  {
+    name: "Summer Ice",
+    url: "https://www.summerice.nl",
+    blurb: "Senioren Zomerijs 2026",
+    // TODO: Summer Ice logo not supplied yet; shows a text fallback until added.
+    // logo: "/sponsors/summer-ice.png",
   },
 ];
 
 /**
- * SponsorKliks: free fundraising via purchases. TODO: replace `url` with the
- * club's own SponsorKliks action link (sponsorkliks.com root used as a safe
- * default so nothing 404s).
+ * Updates: news items shown on the home page. Titles, dates and categories
+ * mirror the club's live site; images use real photography instead of event
+ * badges. Add a `href` per item once article pages exist.
  */
-export const sponsorKliks = {
-  url: "https://www.sponsorkliks.com",
-  label: "Steun Leiden Lions gratis via SponsorKliks",
+export type Update = {
+  title: string;
+  date: string;
+  categories: string[];
+  image: string;
+  href?: string;
 };
+
+export const updates: Update[] = [
+  {
+    title: "De voorlopige scheidsrechtersindeling tot en met december 2025 staat online",
+    date: "31 augustus 2025",
+    categories: ["Team Stripes Leiden"],
+    image: "/photos/team-blues.webp",
+  },
+  {
+    title: "Super Sunday 2025",
+    date: "31 maart 2025",
+    categories: ["Algemeen", "Senioren"],
+    image: "/photos/action-duel.webp",
+  },
+  {
+    title: "Livestream Super Sunday Senioren",
+    date: "4 april 2024",
+    categories: ["Senioren"],
+    image: "/photos/action-wide.webp",
+  },
+  {
+    title: "Super Sunday Senioren 2024 in Leiden",
+    date: "26 januari 2024",
+    categories: ["Senioren"],
+    image: "/photos/action-goalie.webp",
+  },
+  {
+    title: "Verplichte keel- en nekbescherming",
+    date: "1 januari 2024",
+    categories: ["Team Stripes Leiden"],
+    image: "/photos/jeugd-kids.webp",
+  },
+  {
+    title: "3 Leidse meiden in Korea",
+    date: "21 januari 2024",
+    categories: ["U15", "Vrouwen"],
+    image: "/photos/team-meiden.webp",
+  },
+];

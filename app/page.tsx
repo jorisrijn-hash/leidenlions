@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Hero } from "@/components/home/Hero";
 import { Featured } from "@/components/Featured";
 import { Sponsors } from "@/components/Sponsors";
+import { Updates } from "@/components/Updates";
 import { TeamMarquee } from "@/components/home/TeamMarquee";
 import { Reveal } from "@/components/Reveal";
 import { Magnetic, Tilt } from "@/components/Interactive";
@@ -68,6 +69,9 @@ export default function Home() {
 
       {/* Team-name marquee (scroll-velocity reactive) ------------------ */}
       <TeamMarquee />
+
+      {/* Sponsors (surfaced high, between the carousel and the teams) --- */}
+      <Sponsors />
 
       {/* Teams overview ------------------------------------------------- */}
       <section id="teams" className="bg-surface py-24">
@@ -243,8 +247,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Sponsors ------------------------------------------------------- */}
-      <Sponsors />
+      {/* Updates -------------------------------------------------------- */}
+      <Updates />
 
       {/* Final CTA ------------------------------------------------------ */}
       <section className="bg-navy-900 py-24 text-white">
