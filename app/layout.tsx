@@ -44,9 +44,17 @@ export const metadata: Metadata = {
     title: `${site.fullName} | IJshockey in Leiden`,
     description:
       "De snelste teamsport ter wereld, elke zaterdag in Schaatshal Leiden. Kom proeftrainen.",
-    images: [{ url: "/icon.png", width: 512, height: 512, alt: "Leiden Lions" }],
+    images: [{ url: "/web-app-manifest-512x512.png", width: 512, height: 512, alt: "Leiden Lions" }],
   },
-  icons: { icon: "/favicon.ico", apple: "/icon.png" },
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon-96x96.png", type: "image/png", sizes: "96x96" },
+    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+  },
+  manifest: "/site.webmanifest",
 };
 
 export const viewport: Viewport = {
@@ -61,7 +69,7 @@ const orgJsonLd = {
   sport: "Ice hockey",
   url: site.url,
   email: site.email,
-  logo: `${site.url}/icon.png`,
+  logo: `${site.url}/web-app-manifest-512x512.png`,
   location: {
     "@type": "Place",
     name: site.rink.name,

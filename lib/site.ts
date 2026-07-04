@@ -14,7 +14,9 @@ export const site = {
   url: "https://www.leiden-lions.nl",
   tagline: "De snelste teamsport ter wereld",
   rink: {
-    name: "Schaatshal Leiden",
+    // Name confirmed from the club's own hero. TODO: verify street/postal for
+    // IJshal De Vliet; the values below may still be the old Vondellaan hall.
+    name: "IJshal De Vliet",
     street: "Vondellaan 41",
     postal: "2332 AA Leiden",
   },
@@ -183,3 +185,62 @@ export const nav: NavItem[] = [
   },
   { label: "IJshockeyschool", href: "/ijshockeyschool" },
 ];
+
+/**
+ * Hero highlights: the club's key messages (previously the rotating hero
+ * slides on leiden-lions.nl). Rendered as a prominent "Uitgelicht" row on the
+ * home page. Items with a `body` also get a /nieuws/[slug] detail page; items
+ * with an external `href` link straight there.
+ */
+export type Highlight = {
+  slug?: string;
+  kicker: string;
+  title: string;
+  blurb: string;
+  image: string;
+  href: string;
+  body?: string[];
+};
+
+export const highlights: Highlight[] = [
+  {
+    slug: "keel-en-nekbescherming",
+    kicker: "Veiligheid",
+    title: "Verplichte keel- en nekbescherming",
+    blurb: "Keel- en nekbescherming is verplicht voor alle spelers, op elke training en wedstrijd.",
+    image: "/photos/action-goalie.webp",
+    href: "/nieuws/keel-en-nekbescherming",
+    body: [
+      "Voor de veiligheid van onze spelers is een keel- en nekbeschermer verplicht tijdens alle trainingen en wedstrijden bij Leiden Lions.",
+      "Heb je nog geen bescherming of twijfel je over de juiste uitrusting? Neem contact met ons op, dan helpen we je graag op weg voordat je het ijs op gaat.",
+    ],
+  },
+  {
+    slug: "ijshal-de-vliet",
+    kicker: "Onze thuisbasis",
+    title: "IJshal De Vliet",
+    blurb: "Leiden Lions traint en speelt in IJshal De Vliet in Leiden.",
+    image: "/photos/rink.webp",
+    href: "/nieuws/ijshal-de-vliet",
+    body: [
+      "Onze thuisbasis is IJshal De Vliet in Leiden. Hier vinden alle trainingen en thuiswedstrijden plaats.",
+      "Kom gerust een keer langs op zaterdag om de sfeer te proeven en het team aan het werk te zien.",
+    ],
+  },
+  {
+    kicker: "Jeugd",
+    title: "Word lid van een jeugdteam",
+    blurb: "Van U7 tot de junioren U17: er is altijd plek voor nieuwe spelers op het ijs.",
+    image: "/photos/jeugd-kids.webp",
+    href: "/jeugd",
+  },
+];
+
+/** Highlights that have their own /nieuws/[slug] detail page. */
+export const newsHighlights = highlights.filter(
+  (h): h is Highlight & { slug: string; body: string[] } => Boolean(h.slug && h.body)
+);
+
+export function highlightBySlug(slug: string) {
+  return newsHighlights.find((h) => h.slug === slug);
+}

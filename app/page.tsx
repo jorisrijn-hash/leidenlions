@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Hero } from "@/components/home/Hero";
+import { Featured } from "@/components/Featured";
 import { TeamMarquee } from "@/components/home/TeamMarquee";
 import { Reveal } from "@/components/Reveal";
 import { Magnetic, Tilt } from "@/components/Interactive";
@@ -14,6 +15,9 @@ export default function Home() {
   return (
     <>
       <Hero />
+
+      {/* Uitgelicht: the club's 3 key messages, surfaced right under the hero */}
+      <Featured />
 
       {/* Intro ---------------------------------------------------------- */}
       <section id="intro" className="bg-ice py-24">
